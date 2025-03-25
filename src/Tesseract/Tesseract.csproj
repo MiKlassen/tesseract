@@ -65,10 +65,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Update="deu.traineddata">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="deu_latf.traineddata">
+    <None Update="tessdata\deu.traineddata">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="x64\tesseract.exe">
