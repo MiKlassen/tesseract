@@ -13,8 +13,8 @@ namespace Tesseract
 		internal PixData(Pix pix)
 		{		
             Pix = pix;
-            Data = Interop.LeptonicaApi.Native.pixGetData(Pix.Handle);
-            WordsPerLine = Interop.LeptonicaApi.Native.pixGetWpl(Pix.Handle);
+            Data = LeptonicaApi.Native.pixGetData(Pix.Handle);
+            WordsPerLine = LeptonicaApi.Native.pixGetWpl(Pix.Handle);
 		}
 		
 		/// <summary>
@@ -36,7 +36,7 @@ namespace Tesseract
         /// </remarks>
         public void EndianByteSwap()
         {
-            Interop.LeptonicaApi.Native.pixEndianByteSwap(Pix.Handle);
+            LeptonicaApi.Native.pixEndianByteSwap(Pix.Handle);
         }
 
 #if Net45

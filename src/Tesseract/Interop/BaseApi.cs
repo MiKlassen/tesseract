@@ -391,7 +391,7 @@ namespace Tesseract.Interop
             IntPtr txtHandle = Native.BaseApiGetHOCRTextInternal(handle, pageNum);
             if (txtHandle != IntPtr.Zero) {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return htmlBeginTag + result + htmlEndTag;
             } else {
                 return null;
@@ -404,7 +404,7 @@ namespace Tesseract.Interop
             IntPtr txtHandle = Native.BaseApiGetHOCRTextInternal(handle, pageNum);
             if (txtHandle != IntPtr.Zero) {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return xhtmlBeginTag + result + xhtmlEndTag;
             } else {
                 return null;
@@ -416,7 +416,7 @@ namespace Tesseract.Interop
             IntPtr txtHandle = Native.BaseApiGetAltoTextInternal(handle, pageNum);
             if (txtHandle != IntPtr.Zero) {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return result;
             } else {
                 return null;
@@ -428,7 +428,7 @@ namespace Tesseract.Interop
             IntPtr txtHandle = Native.BaseApiGetTsvTextInternal(handle, pageNum);
             if (txtHandle != IntPtr.Zero) {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return result;
             } else {
                 return null;
@@ -441,7 +441,7 @@ namespace Tesseract.Interop
             if (txtHandle != IntPtr.Zero)
             {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return result;
             }
             else
@@ -456,7 +456,7 @@ namespace Tesseract.Interop
             if (txtHandle != IntPtr.Zero)
             {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return result;
             }
             else
@@ -471,7 +471,7 @@ namespace Tesseract.Interop
             if (txtHandle != IntPtr.Zero)
             {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return result;
             }
             else
@@ -486,7 +486,7 @@ namespace Tesseract.Interop
             if (txtHandle != IntPtr.Zero)
             {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return result;
             }
             else
@@ -510,7 +510,7 @@ namespace Tesseract.Interop
             IntPtr txtHandle = Native.BaseAPIGetUTF8TextInternal(handle);
             if (txtHandle != IntPtr.Zero) {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return result;
             } else {
                 return null;
@@ -602,7 +602,7 @@ namespace Tesseract.Interop
             IntPtr txtHandle = Native.ResultIteratorGetUTF8TextInternal(handle, level);
             if (txtHandle != IntPtr.Zero) {
                 var result = MarshalHelper.PtrToString(txtHandle, Encoding.UTF8);
-                TessApi.Native.DeleteText(txtHandle);
+                Native.DeleteText(txtHandle);
                 return result;
             } else {
                 return null;

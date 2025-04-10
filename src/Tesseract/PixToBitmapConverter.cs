@@ -143,7 +143,7 @@ namespace Tesseract
             } else {
                 for (int i = 0; i < maxColors; i++) {
                     var value = (byte)(i * 255 / lastColor);
-                    pallete.Entries[i] = SD.Color.FromArgb(value, value, value);
+                    pallete.Entries[i] = Color.FromArgb(value, value, value);
                 }
             }
             // This is required to force the palette to update!
