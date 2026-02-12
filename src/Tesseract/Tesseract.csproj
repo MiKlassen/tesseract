@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net47;net48</TargetFrameworks>
+    <TargetFrameworks>net48</TargetFrameworks>
+    <Configurations>Debug;Release;Release_Local</Configurations>
   </PropertyGroup>
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageId>Tesseract</PackageId>
     <Authors>Charles Weld</Authors>
     <Company />
@@ -21,6 +22,12 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>C:\VSPath\KoCom\KoComNewDLL\StrongNameKey\KoCom-SN.pfx</AssemblyOriginatorKeyFile>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <BaseOutputPath>..\..\..\..\..\JOB2Box_3\Output\Release</BaseOutputPath>
+    <OutputPath>$(BaseOutputPath)\</OutputPath>
+    <AppendConfigurationToOutputPath>false</AppendConfigurationToOutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
   
   <!-- .NET 4.7 references, compilation flags and build options -->
@@ -41,6 +48,11 @@
     <DocumentationFile>.\Tesseract.xml</DocumentationFile>
     <DebugType>none</DebugType>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release_Local|netstandard2.0|AnyCPU'">
+    <DocumentationFile>.\Tesseract.xml</DocumentationFile>
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DocumentationFile>.\Tesseract.xml</DocumentationFile>
     <DebugType>none</DebugType>
@@ -54,8 +66,16 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net47|AnyCPU'">
     <DebugType>none</DebugType>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release_Local|net47|AnyCPU'">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|AnyCPU'">
     <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release_Local|net48|AnyCPU'">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Reflection.Emit">
