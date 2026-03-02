@@ -1,11 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net48</TargetFrameworks>
-    <Configurations>Debug;Release;Release_Local</Configurations>
+    <TargetFrameworks>netstandard2.0;net47;net48</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Tesseract</PackageId>
     <Authors>Charles Weld</Authors>
     <Company />
@@ -22,12 +21,6 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>C:\VSPath\KoCom\KoComNewDLL\StrongNameKey\KoCom-SN.pfx</AssemblyOriginatorKeyFile>
-    <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <BaseOutputPath>..\..\..\..\..\JOB2Box_3\Output\Release</BaseOutputPath>
-    <OutputPath>$(BaseOutputPath)\</OutputPath>
-    <AppendConfigurationToOutputPath>false</AppendConfigurationToOutputPath>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
   
   <!-- .NET 4.7 references, compilation flags and build options -->
@@ -46,36 +39,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
     <DocumentationFile>.\Tesseract.xml</DocumentationFile>
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release_Local|netstandard2.0|AnyCPU'">
-    <DocumentationFile>.\Tesseract.xml</DocumentationFile>
-    <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DocumentationFile>.\Tesseract.xml</DocumentationFile>
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net47|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net48|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net47|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release_Local|net47|AnyCPU'">
-    <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release_Local|net48|AnyCPU'">
-    <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Reflection.Emit">
@@ -94,29 +60,14 @@
     <Content Include="x86\*.dll" Pack="true" PackageCopyToOutput="true" PackagePath="x86">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Remove="tessdata\deu.traineddata" />
-    <Content Include="tessdata\deu.traineddata">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Tesseract.targets" Pack="true" PackageCopyToOutput="true" PackagePath="build/">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Update="x64\leptonica-1.82.0.dll">
+    <None Update="tessdata\deu.traineddata">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="x64\tesseract50.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="x86\leptonica-1.82.0.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="x86\tesseract50.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
+    </None>
     <None Update="x64\tesseract.exe">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
